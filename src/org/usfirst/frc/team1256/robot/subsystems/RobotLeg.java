@@ -12,8 +12,10 @@ import edu.wpi.first.wpilibj.*;
  */
 public class RobotLeg extends Subsystem {
     
-	VictorSP leftMotor = new VictorSP(RobotMap.leftMotor);
-	VictorSP rightMotor = new VictorSP(RobotMap.rightMotor);
+//	VictorSP leftMotor = new VictorSP(RobotMap.leftMotor);
+//	VictorSP rightMotor = new VictorSP(RobotMap.rightMotor);
+	Servo leftMotor = new Servo(RobotMap.leftMotor);
+	Servo rightMotor = new Servo(RobotMap.rightMotor);
 	Encoder leftEncoder;
 	Encoder rightEncoder;
 	
@@ -42,17 +44,20 @@ public class RobotLeg extends Subsystem {
 	}
 	
 	public void setLeftSpeed(double speed) {
-		leftMotor.set(speed);
+//		leftMotor.set(speed);
+		leftMotor.setAngle(leftMotor.getAngle()+3.6*speed);
+//		System.out.println(leftMotor.getAngle());
 	}
 	
 	public void setRightSpeed(double speed) {
-		rightMotor.set(speed);
+//		rightMotor.set(speed);
+		rightMotor.set(rightMotor.get()+3.6*speed);
 	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new MoveForwardWithJoystick());
+//    	setDefaultCommand(new MoveForwardWithJoystick());
     }
 }
 

@@ -21,9 +21,6 @@ public class MoveForwardWithJoystick extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	Robot.leg.leftForward();
-    	Robot.leg.rightForward();
-    	
     	if (Debug.ON) {
     		Debug.writeLog(this, "Initializing Command: "+ this);
     		int axisCount = OI.stick.getAxisCount();
@@ -43,7 +40,7 @@ public class MoveForwardWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Debug.ON && (Debug.iterationCounter % 25 == 0)) {
+    	if (Debug.ON && (Debug.iterationCounter % 50 == 0)) {
     		int axisCount = OI.stick.getAxisCount();
     		if (axisCount > 0){
         		Debug.writeLog(OI.stick, "X Value: "+OI.stick.getAxis(AxisType.kX));
@@ -55,6 +52,12 @@ public class MoveForwardWithJoystick extends Command {
         		Debug.writeLog(OI.stick, "Z Value: "+OI.stick.getAxis(AxisType.kZ));
     		}
     	}
+    	
+    	double xValue = OI.stick.getAxis(AxisType.kX);
+    	double yValue = OI.stick.getAxis(AxisType.kY);
+    	
+    	Robot.leg.setLeftSpeed((-yValue+xValue >1  ? 1 : -yValue+xValue) <-1 ? -1 : -yValue+xValue);
+    	Robot.leg.setRightSpeed((-yValue-xValue > 1 ? 1 : -yValue-xValue) <-1 ? -1 : -yValue-xValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()

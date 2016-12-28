@@ -21,7 +21,6 @@ public class CloseClaw extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	startTime = Timer.getFPGATimestamp();
-    	Robot.claw.closeClaw();
     	
     	if (Debug.ON) {
     		Debug.writeLog(this, "Initializing Command: "+ this);
@@ -30,6 +29,7 @@ public class CloseClaw extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.claw.closeClaw();
     }
 
     // Make this return true when this Command no longer needs to run execute()
