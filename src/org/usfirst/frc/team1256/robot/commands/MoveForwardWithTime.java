@@ -20,6 +20,7 @@ public class MoveForwardWithTime extends Command {
         // eg. requires(chassis);
     	requires(Robot.leg);
     	setTime = setSeconds;
+    	this.setInterruptible(true);
     }
 
     // Called just before this Command runs the first time
@@ -60,6 +61,9 @@ public class MoveForwardWithTime extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Command interrupted: "+ this);
+    	}
     	end();
     }
 }

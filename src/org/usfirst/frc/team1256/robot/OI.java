@@ -2,7 +2,6 @@ package org.usfirst.frc.team1256.robot;
 
 import edu.wpi.first.wpilibj.buttons.*;
 
-import org.usfirst.frc.team1256.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1256.robot.commands.*;
 import edu.wpi.first.wpilibj.*;
 
@@ -10,7 +9,7 @@ import edu.wpi.first.wpilibj.*;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-@SuppressWarnings("unused")
+//@SuppressWarnings("unused")
 
 public class OI {
     //// CREATING BUTTONS
@@ -20,6 +19,7 @@ public class OI {
      public final static Joystick stick = new Joystick(0);
      public final static JoystickButton button1 = new JoystickButton(stick, 1);
      public final static JoystickButton button2 = new JoystickButton(stick, 2);
+     public final static JoystickButton button3 = new JoystickButton(stick, 3);
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
@@ -42,8 +42,9 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
      
      OI () {
-    	 button1.whenPressed(new MoveForwardWithTime(3));
-    	 button2.whenPressed(new MoveBackwardWithTime(3));
+    	 button1.whenActive(new MoveForwardWithTime(3));
+    	 button2.whenActive(new MoveBackwardWithTime(3));
+    	 button3.whenActive(new AutoRun1());
      }
 }
 
