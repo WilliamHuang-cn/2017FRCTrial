@@ -25,7 +25,7 @@ public class JoystickTrigger extends Trigger {
     	if (Debug.ON && DriverStation.getInstance().isEnabled() && Debug.iterationCounter%25 == 0) {
     		Debug.writeLog(this, "Trigger queried: "+this);
     	}
-    		return true;
+    	return true;
 //    	}
 //        return false;
     }
