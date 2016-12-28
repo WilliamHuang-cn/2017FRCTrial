@@ -20,7 +20,7 @@ public class MoveForwardWithTime extends Command {
         // eg. requires(chassis);
     	requires(Robot.leg);
     	setTime = setSeconds;
-    	this.setInterruptible(true);
+    	this.setInterruptible(false);
     }
 
     // Called just before this Command runs the first time

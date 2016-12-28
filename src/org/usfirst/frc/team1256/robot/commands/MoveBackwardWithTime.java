@@ -26,9 +26,6 @@ public class MoveBackwardWithTime extends Command {
     protected void initialize() {
     	startTime = Timer.getFPGATimestamp();
     	
-    	Robot.leg.leftBackward();
-    	Robot.leg.rightBackward();
-    	
     	if (Debug.ON) {
     		Debug.writeLog(this, "Initializing Command: "+ this);
     	}
@@ -36,6 +33,9 @@ public class MoveBackwardWithTime extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	Robot.leg.leftBackward();
+    	Robot.leg.rightBackward();
     }
 
     // Make this return true when this Command no longer needs to run execute()

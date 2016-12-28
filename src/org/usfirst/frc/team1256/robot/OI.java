@@ -3,6 +3,8 @@ package org.usfirst.frc.team1256.robot;
 import edu.wpi.first.wpilibj.buttons.*;
 
 import org.usfirst.frc.team1256.robot.commands.*;
+import org.usfirst.frc.team1256.robot.triggers.JoystickTrigger;
+
 import edu.wpi.first.wpilibj.*;
 
 /**
@@ -20,6 +22,8 @@ public class OI {
      public final static JoystickButton button1 = new JoystickButton(stick, 1);
      public final static JoystickButton button2 = new JoystickButton(stick, 2);
      public final static JoystickButton button3 = new JoystickButton(stick, 3);
+     
+     public final JoystickTrigger trigger = new JoystickTrigger(stick);
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
@@ -45,6 +49,7 @@ public class OI {
     	 button1.whenActive(new MoveForwardWithTime(3));
     	 button2.whenActive(new MoveBackwardWithTime(3));
     	 button3.whenActive(new AutoRun1());
+    	 trigger.whenActive(new MoveForwardWithJoystick());
      }
 }
 
