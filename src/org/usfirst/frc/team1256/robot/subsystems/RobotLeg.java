@@ -3,6 +3,7 @@ package org.usfirst.frc.team1256.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team1256.robot.*;
+import org.usfirst.frc.team1256.robot.commands.MoveForwardWithJoystick;
 
 import edu.wpi.first.wpilibj.*;
 
@@ -51,6 +52,7 @@ public class RobotLeg extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new MoveForwardWithJoystick());
     }
 }
 
