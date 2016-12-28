@@ -28,8 +28,8 @@ public class MoveBackwardWithTime extends Command {
     	Robot.leg.leftBackward();
     	Robot.leg.rightBackward();
     	
-       	if (Debug.ON) {
-    		Debug.writeLog(this, "Running Command: "+ this);
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Initializing Command: "+ this);
     	}
     }
 
@@ -48,6 +48,10 @@ public class MoveBackwardWithTime extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Ending Command: "+ this);
+    	}
+    	Robot.leg.stop();
     }
 
     // Called when another command which requires one or more of the same

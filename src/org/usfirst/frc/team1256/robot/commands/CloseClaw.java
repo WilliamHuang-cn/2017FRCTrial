@@ -24,7 +24,7 @@ public class CloseClaw extends Command {
     	Robot.claw.closeClaw();
     	
     	if (Debug.ON) {
-    		Debug.writeLog(this, "Running Command: "+ this);
+    		Debug.writeLog(this, "Initializing Command: "+ this);
     	}
     }
 
@@ -44,6 +44,10 @@ public class CloseClaw extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.claw.stop();
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Ending Command: "+ this);
+    	}
+
     }
 
     // Called when another command which requires one or more of the same

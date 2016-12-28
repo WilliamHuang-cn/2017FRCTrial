@@ -24,9 +24,10 @@ public class OpenClaw extends Command {
     protected void initialize() {
     	startTime = Timer.getFPGATimestamp();
     	Robot.claw.openClaw();
-       	if (Debug.ON) {
-    		Debug.writeLog(this, "Running Command: "+ this);
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Initializing Command: "+ this);
     	}
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,6 +46,9 @@ public class OpenClaw extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.claw.stop();
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Ending Command: "+ this);
+    	}
     }
 
     // Called when another command which requires one or more of the same

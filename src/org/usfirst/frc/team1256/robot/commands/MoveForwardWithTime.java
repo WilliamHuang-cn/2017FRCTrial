@@ -28,9 +28,10 @@ public class MoveForwardWithTime extends Command {
     	
     	Robot.leg.leftForward();
     	Robot.leg.rightForward();
-       	if (Debug.ON) {
-    		Debug.writeLog(this, "Running Command: "+ this);
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Initializing Command: "+ this);
     	}
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -50,6 +51,10 @@ public class MoveForwardWithTime extends Command {
 
     // Called once after isFinished returns true
     protected void end() {	
+    	Robot.leg.stop();
+    	if (Debug.ON) {
+    		Debug.writeLog(this, "Ending Command: "+ this);
+    	}
     }
 
     // Called when another command which requires one or more of the same

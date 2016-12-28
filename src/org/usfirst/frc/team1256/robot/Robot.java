@@ -44,7 +44,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	
     	 if (Debug.ON) {
-             System.out.println("Start Robot Initialization");
+             Debug.writeLog(this,"Start Robot Initialization");
          }
     	 
 		oi = new OI();
@@ -83,7 +83,6 @@ public class Robot extends IterativeRobot {
     	
     	// schedule the autonomous command (example)
         if (Debug.ON) {
-        	System.out.println("Hello");
         	Debug.writeLog(this, "Command selected:"+ autonomousCommand);
         }
         
