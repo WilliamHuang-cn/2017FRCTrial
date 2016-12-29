@@ -50,6 +50,7 @@ public class OI {
     	 button2.whenActive(new MoveBackwardWithTime(3));
     	 button3.whenActive(new AutoRun1());
 //    	 trigger.whenActive(new MoveForwardWithJoystick());
+    	 // Use whileActive instad of whenActive to keep joystick value going
     	 trigger.whileActive(new MoveForwardWithJoystick());
      }
 }
