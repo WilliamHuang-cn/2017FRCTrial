@@ -49,7 +49,8 @@ public class OI {
     	 button1.whenActive(new MoveForwardWithTime(3));
     	 button2.whenActive(new MoveBackwardWithTime(3));
     	 button3.whenActive(new AutoRun1());
-    	 trigger.whenActive(new MoveForwardWithJoystick());
+//    	 trigger.whenActive(new MoveForwardWithJoystick());
+    	 trigger.whileActive(new MoveForwardWithJoystick());
      }
 }
 

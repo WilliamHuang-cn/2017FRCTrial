@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
      */
     public void disabledInit(){
-
+    	Debug.writeLog(this, "In "+this+" Robot:: Disabledinit");
     }
 	
 	public void disabledPeriodic() {
